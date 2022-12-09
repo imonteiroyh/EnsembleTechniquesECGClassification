@@ -130,3 +130,6 @@ dmypy.json
 
 # data
 physionet.org
+
+# generated data
+generated_data
