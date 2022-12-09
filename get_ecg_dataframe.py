@@ -23,6 +23,8 @@ for file in os.listdir(path_to_data):
         dat_files.append(file)
 dat_files = natsorted(dat_files)
 
+# dat_files = dat_files[:5]
+
 print('Reading the data...')
 
 '''
@@ -72,7 +74,6 @@ for index, sample in enumerate(ecg_data):
         ecg_extracted_data = create_ecg_info_dict(sample['signal'], f_samp = SAMPLING_FREQUENCY)
         ecg_extracted_dataframe = pd.DataFrame.from_dict(ecg_extracted_data, orient = 'index').T
 
-        sample_id = sample['filename'][:-4]
-        extracted_data_filename = 'generated_data/ecg_extracted_data_' + sample_id + '.csv'
+        extracted_data_filename = 'generated_data/' + sample['filename']
         ecg_extracted_dataframe.to_csv(extracted_data_filename)
         bar()
