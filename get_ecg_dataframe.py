@@ -36,7 +36,7 @@ with alive_bar(len(dat_files)) as bar:
         file_id = file[:-4]
 
         ecg_info = dict()
-        ecg_info['filename'] = file
+        ecg_info['filename'] = 'ecg_extracted_data_' + file_id + '.csv'
 
         path_to_file = path_to_data + '/' + file_id
 
