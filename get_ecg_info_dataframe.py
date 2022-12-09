@@ -1,6 +1,7 @@
 import os
 import wfdb
 import numpy as np
+import pandas as pd
 from natsort import natsorted
 
 SAMPLING_FREQUENCY = 500
