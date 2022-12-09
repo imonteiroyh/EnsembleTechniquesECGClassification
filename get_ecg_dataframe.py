@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from natsort import natsorted
 from alive_progress import alive_bar
-from get_ecg_info import create_ecg_info_dict
+from parameter_extraction.get_ecg_info import create_ecg_info_dict
 
 SAMPLING_FREQUENCY = 500
 
@@ -58,14 +58,17 @@ with alive_bar(len(dat_files)) as bar:
         ecg_data.append(ecg_info)
         bar()
 
-print('Generating the data frame for each sample...')
+print('Generating the data frames for each sample...')
 
 if not os.path.isdir(start_path + '/generated_data'):
     os.mkdir('generated_data')
 
-iter = 0
+ecg_info_dataframe = pd.DataFrame.from_dict(ecg_data)
+ecg_info_filename = 'generated_data/ecg_info_data.csv'
+ecg_info_dataframe.to_csv(ecg_info_filename)
+
 for index, sample in enumerate(ecg_data):
-    with alive_bar(1, title = f'Sample {index + 1}') as bar:
+    with alive_bar(1, title = f'Sample {(index + 1):0{len(str(len(ecg_data)))}d}') as bar:
         ecg_extracted_data = create_ecg_info_dict(sample['signal'], f_samp = SAMPLING_FREQUENCY)
         ecg_extracted_dataframe = pd.DataFrame.from_dict(ecg_extracted_data, orient = 'index').T
 
