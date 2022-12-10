@@ -23,8 +23,6 @@ for file in os.listdir(path_to_data):
         dat_files.append(file)
 dat_files = natsorted(dat_files)
 
-# dat_files = dat_files[:5]
-
 print('Reading the data...')
 
 '''
@@ -49,12 +47,8 @@ with alive_bar(len(dat_files)) as bar:
             ecg_info['signal'].append(ecg_signal)
 
         ecg_header = wfdb.rdheader(path_to_file).comments
-        pacient_age = ecg_header[0].split()[1]
-        pacient_sex = ecg_header[1].split()[1]
         ecg_assigned_rhythm = ''.join(ecg_header[3].replace('.', '').split()[1:])
 
-        ecg_info['age'] = pacient_age
-        ecg_info['sex'] = pacient_sex
         ecg_info['rhythm'] = ecg_assigned_rhythm
 
         ecg_data.append(ecg_info)
@@ -65,14 +59,11 @@ print('Generating the data frames for each sample...')
 if not os.path.isdir(start_path + '/generated_data'):
     os.mkdir('generated_data')
 
-ecg_info_dataframe = pd.DataFrame.from_dict(ecg_data)
-ecg_info_filename = 'generated_data/ecg_info_data.csv'
-ecg_info_dataframe.to_csv(ecg_info_filename)
-
 for index, sample in enumerate(ecg_data):
     with alive_bar(1, title = f'Sample {(index + 1):0{len(str(len(ecg_data)))}d}') as bar:
         ecg_extracted_data = create_ecg_info_dict(sample['signal'], f_samp = SAMPLING_FREQUENCY)
         ecg_extracted_dataframe = pd.DataFrame.from_dict(ecg_extracted_data, orient = 'index').T
+        ecg_extracted_dataframe['rhythm'] = sample['rhythm']
 
         extracted_data_filename = 'generated_data/' + sample['filename']
         ecg_extracted_dataframe.to_csv(extracted_data_filename)
