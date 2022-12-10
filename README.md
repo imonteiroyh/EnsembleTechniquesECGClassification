@@ -1,6 +1,6 @@
 # Electrocardiogram Arrhythmia Classification using Ensemble Techniques
 
-Arrhythmia detection and classification study using ensemble techniques on Lobachevsky University Eletrocardiography Database. Study carried out for the Digital Signal Processing Laboratory Course in December 2022.
+Arrhythmia detection and classification study using ensemble techniques on Lobachevsky University Electrocardiography Database. Study carried out for the Digital Signal Processing Laboratory Course in December 2022.
 
 # Access the files
 - Download the ZIP file in [Physionet](https://physionet.org/content/ludb/1.0.1/)
