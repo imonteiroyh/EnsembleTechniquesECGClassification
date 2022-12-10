@@ -12,3 +12,6 @@ Arrhythmia detection and classification study using boosting and bagging models 
 1. Get the data files
 2. Run script.sh via ```bash script.sh```
 3. Run ecg_rhythm_classifier.ipynb
+
+# About bagging and boosting
+![image](https://user-images.githubusercontent.com/61994795/206860120-7dc405fd-c4e2-451a-9759-1f610aed2cc5.png)
