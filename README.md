@@ -4,3 +4,11 @@ Arrhythmia detection and classification study using boosting and bagging models 
 # Access the files
 - Download the ZIP file in [Physionet](https://physionet.org/content/ludb/1.0.1/)
 - Download the files using the terminal: ```wget -r -N -c -np https://physionet.org/content/ludb/1.0.1/```
+
+# Method
+![image](https://user-images.githubusercontent.com/61994795/206858469-dccbfa24-c60f-4bb6-b75d-5519f894ada6.png)
+
+# Getting started
+1. Get the data files
+2. Run script.sh via ```bash script.sh```
+3. Run ecg_rhythm_classifier.ipynb
