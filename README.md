@@ -14,6 +14,9 @@ Arrhythmia detection and classification study using ensemble techniques on Lobac
 2. Run script.sh via ```bash script.sh```
 3. Run ecg_rhythm_classifier.ipynb
 
+# About the Electrocardiogram Delineation and Parameter Extraction
+![ecg_delineation_and_parameter_extraction](https://user-images.githubusercontent.com/61994795/206919984-92ae3ec3-9f08-4413-b1f2-d8bc0278d58d.png)
+
 # About Bagging and Boosting
 Bagging and Boosting are two types of Ensemble techniques, where ensemble is a Machine Learning concept in which the idea is to train multiple models using the same learning algorithm. The Bagging and Boosting models get the number of learners by producing new training data sets using random sampling with replacement, in other words, some observations may be repeated in each new training data set. In the case of Bagging, any element has the same probability of appearing in a new dataset whilst for Boosting the observations are weighted. The final decision to classify the samples is made with an arithmetic mean for Bagging while it is made with a weighted arithmetic mean for Boosting.
 
